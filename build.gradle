@@ -34,9 +34,12 @@ compileTestKotlin {
 
 application {
     mainClassName = 'main.ServerKt'
+
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     manifest {
         attributes(
                 'Main-Class': 'main.ServerKt'
