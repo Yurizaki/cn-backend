@@ -35,11 +35,6 @@ fun dbStartup() {
     if(host != null) {
         db = Database.connect("jdbc:$host?sslmode=require", "org.postgresql.Driver", user, pass);
 
-        //    val db2 = Database.connect("jdbc:pgsql://ec2-52-7-115-250.compute-1.amazonaws.com:5432/d9fdbflj7g1t8a?ssl.mode=Require",
-//        driver = "com.impossibl.postgres.jdbc.PGDriver",
-//        user = "iebyhqwbwatafi",
-//        password = "7ab90e0fc97e192d4feca6f74c741acfa43d8cba33c685f031a984d75036a6f0")
-
         transaction {
 
             SchemaUtils.create(cn_Vocabulary)
