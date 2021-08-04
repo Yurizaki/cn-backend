@@ -4,30 +4,22 @@ import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
-val vocabularyDbName: String? = "cn_Vocabulary"
+val characterDbName: String = "cn_Characters"
 
-object cn_Vocabulary : Table("$vocabularyDbName") {
-    val cn_id           = integer("cn_Id").autoIncrement()
-    val cn_character    = varchar("cn_character", 10)
-    val cn_pinyin       = varchar("cn_pinyin", 60)
-    val cn_translation  = varchar("cn_translation", 100)
-    val cn_tags         = varchar("cn_tags", 100).nullable()
-    val cn_related      = varchar("cn_related", 100).nullable()
-    val cn_hskLevel     = integer("cn_hskLevel")
+object cn_Characters : Table("$characterDbName") {
+    val cn_c_id           = integer("cn_Id").autoIncrement()
+    val cn_c_character    = varchar("cn_character", 10)
+    val cn_c_pinyin       = varchar("cn_pinyin", 60)
 
-    override val primaryKey = PrimaryKey(cn_id, name = "PK_Vocabulary_ID")
+    override val primaryKey = PrimaryKey(cn_c_id, name = "PK_Character_ID")
 }
 
-data class cn_Vocab(
+data class cn_Char(
     val cn_character    : String,
     val cn_pinyin       : String,
-    val cn_translation  : String,
-    val cn_tags         : String?,
-    val cn_related      : String?,
-    val cn_hskLevel     : Int
 )
 
-class CnVocabularyController {
+class CnCharacterController {
 
     private var db: Database? = null
 
