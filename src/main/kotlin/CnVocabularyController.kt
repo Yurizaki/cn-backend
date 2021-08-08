@@ -1,12 +1,11 @@
 package main
 
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
-val vocabularyDbName: String? = "cn_Vocabulary"
+const val vocabularyDbName: String = "cn_Vocabulary"
 
-object cn_Vocabulary : Table("$vocabularyDbName") {
+object cn_Vocabulary : Table(vocabularyDbName) {
     val cn_id           = integer("cn_Id").autoIncrement()
     val cn_character    = varchar("cn_character", 10)
     val cn_pinyin       = varchar("cn_pinyin", 60)
@@ -28,54 +27,16 @@ data class cn_Vocab(
 )
 
 class CnVocabularyController {
-
-    private var db: Database? = null
-
-    init {
-        setupConnection()
-    }
-
-    private fun setupConnection() {
-        val host = System.getenv("HEROKU_POSTGRESQL_KOTLIN_HOST")
-        val user = System.getenv("HEROKU_POSTGRESQL_KOTLIN_USER")
-        val pass = System.getenv("HEROKU_POSTGRESQL_KOTLIN_PASS")
-        val operation = System.getenv("HEROKU_POSTGRESQL_KOTLIN_OPERATION")
-
-        if(host != null && user != null && pass != null) {
-            db = Database.connect("jdbc:$host?sslmode=require&reWriteBatchedInserts=true", "org.postgresql.Driver", user, pass)
-            TransactionManager.defaultDatabase = db
-
-            when (operation) {
-                "prod" -> {
-                    initialiseDb()
-                    executeAllVocabularyInserts()
-                }
-                "closeDown" -> {
-                    destroyDb()
-                }
-                "dev" -> {
-                    initialiseDb()
-                    executeAllVocabularyInserts()
-                    destroyDb()
-                }
-
-            }
-        }
-    }
-
-    private fun initialiseDb() {
+    fun createTable() {
         transaction {
             addLogger(StdOutSqlLogger)
-            val tables = db.dialect.allTablesNames()
             SchemaUtils.create(cn_Vocabulary)
         }
     }
 
-    private fun destroyDb() {
+    fun destroyTable() {
         transaction {
             addLogger(StdOutSqlLogger)
-            val tables = db.dialect.allTablesNames()
-
             SchemaUtils.drop(cn_Vocabulary)
         }
     }
@@ -100,5 +61,4 @@ class CnVocabularyController {
 
         return data
     }
-
 }
