@@ -5,15 +5,17 @@ import freemarker.core.HTMLOutputFormat
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.gson.*
-import io.ktor.http.content.*
 import io.ktor.response.*
-import io.ktor.routing.get
-import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import io.ktor.freemarker.*
+import io.ktor.html.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.routing.*
+import kotlinx.html.*
 
 private var db: Database? = null
 val cnVocabularyController: CnVocabularyController = CnVocabularyController()
@@ -94,7 +96,24 @@ fun main() {
             get("/admin") {
                 call.respond(FreeMarkerContent("index.ftl", mapOf("entries" to blogEntries), ""))
             }
+        }
+        routing {
+            post("/submit") {
+                val params = call.receiveParameters()
+                val headline = params["headline"] ?: return@post call.respond(HttpStatusCode.BadRequest)
+                val body = params["body"] ?: return@post call.respond(HttpStatusCode.BadRequest)
+                // TODO: send a status page to the user
 
+                println("$headline :: $body")
+
+                call.respondHtml {
+                    body {
+                        h1 {
+                            +"Thanks for submitting your entry!"
+                        }
+                    }
+                }
+            }
         }
     }.start(wait = true)
 }
