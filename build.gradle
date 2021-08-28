@@ -7,7 +7,6 @@ group = 'me.alex'
 version = '1.0-SNAPSHOT'
 
 repositories {
-    jcenter()
     mavenCentral()
     maven { url 'https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven' }
 }
@@ -24,6 +23,8 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:0.31.1")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.31.1")
     implementation("org.postgresql:postgresql:42.2.2")
+
+    implementation("it.skrape:skrapeit:1.1.5")
 }
 
 test {

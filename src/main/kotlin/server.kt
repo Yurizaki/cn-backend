@@ -15,13 +15,34 @@ import io.ktor.html.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.routing.*
+import it.skrape.core.*
+import it.skrape.fetcher.HttpFetcher
+import it.skrape.fetcher.response
+import it.skrape.fetcher.skrape
+import it.skrape.selects.DocElement
+import it.skrape.selects.eachHref
+import it.skrape.selects.eachText
+import it.skrape.selects.html5.*
 import kotlinx.html.*
+import kotlinx.html.td
+import org.jsoup.Jsoup
 
 private var db: Database? = null
 val cnVocabularyController: CnVocabularyController = CnVocabularyController()
 val cnCharacterController: CnCharacterController = CnCharacterController()
 val cnVocabularyInserts: CnVocabularyInserts = CnVocabularyInserts()
 val cnCharacterInserts: CnCharacterInserts = CnCharacterInserts()
+
+data class ScrapedResult (
+    val hanzi: String,
+    val pinyin: String
+)
+
+data class MySimpleDataClass(
+    val httpStatusCode: Int,
+    val httpStatusMessage: String,
+    val allParagraphs: List<DocElement>
+)
 
 fun initialiseSetup() {
     val host = System.getenv("HEROKU_POSTGRESQL_KOTLIN_HOST")
@@ -113,6 +134,56 @@ fun main() {
                         }
                     }
                 }
+            }
+        }
+        routing {
+            get("/scrape/{p}") {
+                val par = call.parameters["p"]
+                val myL : MutableList<ScrapedResult> = mutableListOf()
+                val doc = Jsoup.connect("https://www.mdbg.net/chinese/dictionary?wdqb=${par}").get()    // <1>
+                doc.select(".resultswrap")
+                    .select("tbody")
+                    .select(".head")
+
+                    .parallelStream()
+                    .filter { it != null }
+                    .forEach {
+
+                        var hanzi = it.select(".hanzi")
+                            .select("span").text()
+                        println(hanzi)
+
+                        var pinyin = it.select(".pinyin")
+                            .select("span").text()
+                        println(pinyin)
+
+
+                        myL.add(ScrapedResult(hanzi, pinyin))
+                    }
+
+                call.respond(mapOf("data" to myL))
+
+//                val extracted = skrape(HttpFetcher) {
+//                    request {
+//                        url = "https://www.mdbg.net/chinese/dictionary?wdqb=%E6%88%91"
+//                    }
+//                    response {
+//                        MySimpleDataClass(
+//                            httpStatusCode = status { code },
+//                            httpStatusMessage = status { message },
+//                            allParagraphs = document.td {
+//                                withClass = "resultswrap"
+//                                findAll {
+//                                    flatMap {
+//                                        it.children
+//                                    }
+//                                }
+//                            }
+//                        )
+//                    }
+//                }
+//                print(extracted)
+
             }
         }
     }.start(wait = true)
