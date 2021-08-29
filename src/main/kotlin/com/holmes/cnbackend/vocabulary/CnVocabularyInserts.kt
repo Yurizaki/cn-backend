@@ -1,4 +1,4 @@
-package main
+package com.holmes.cnbackend.vocabulary
 
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger

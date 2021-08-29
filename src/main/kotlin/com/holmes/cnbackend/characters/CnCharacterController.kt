@@ -1,7 +1,7 @@
-package main
+package com.holmes.cnbackend.characters
 
+import com.holmes.cnbackend.controllers.CnControllerInterface
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 const val characterDbName: String = "cn_Characters"
@@ -19,19 +19,23 @@ data class cn_Char(
     val cn_pinyin       : String,
 )
 
-class CnCharacterController {
-    fun createTable() {
+class CnCharacterController : CnControllerInterface {
+    override fun createTable() {
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(cn_Characters)
         }
     }
 
-    fun destroyTable() {
+    override fun destroyTable() {
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.drop(cn_Characters)
         }
+    }
+
+    override fun executeAllInserts() {
+        CnCharacterInserts().executeAllCharacterInserts()
     }
 
     fun getAllCharacters(): MutableList<cn_Char> {
@@ -41,10 +45,12 @@ class CnCharacterController {
             addLogger(StdOutSqlLogger)
 
             for (vocabData in cn_Characters.selectAll()) {
-                data.add(cn_Char(
+                data.add(
+                    cn_Char(
                     vocabData[cn_Characters.cn_c_character],
                     vocabData[cn_Characters.cn_c_pinyin]
-                ))
+                )
+                )
             }
         }
 

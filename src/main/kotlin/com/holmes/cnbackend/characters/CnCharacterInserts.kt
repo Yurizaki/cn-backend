@@ -1,4 +1,4 @@
-package main
+package com.holmes.cnbackend.characters
 
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
@@ -20,5 +20,4 @@ class CnCharacterInserts {
             println("Inserts inserted: $allChars")
         }
     }
-
 }

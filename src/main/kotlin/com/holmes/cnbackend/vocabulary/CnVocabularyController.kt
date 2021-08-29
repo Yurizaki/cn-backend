@@ -1,5 +1,6 @@
-package main
+package com.holmes.cnbackend.vocabulary
 
+import com.holmes.cnbackend.controllers.CnControllerInterface
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -26,19 +27,23 @@ data class cn_Vocab(
     val cn_hskLevel     : Int
 )
 
-class CnVocabularyController {
-    fun createTable() {
+class CnVocabularyController : CnControllerInterface {
+    override fun createTable() {
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(cn_Vocabulary)
         }
     }
 
-    fun destroyTable() {
+    override fun destroyTable() {
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.drop(cn_Vocabulary)
         }
+    }
+
+    override fun executeAllInserts() {
+        CnVocabularyInserts().executeAllVocabularyInserts()
     }
 
     fun getAllVocabulary(): MutableList<cn_Vocab> {
@@ -48,14 +53,16 @@ class CnVocabularyController {
             addLogger(StdOutSqlLogger)
 
             for (vocabData in cn_Vocabulary.selectAll()) {
-                data.add(cn_Vocab(
+                data.add(
+                    cn_Vocab(
                     vocabData[cn_Vocabulary.cn_character],
                     vocabData[cn_Vocabulary.cn_pinyin],
                     vocabData[cn_Vocabulary.cn_translation],
                     vocabData[cn_Vocabulary.cn_tags],
                     vocabData[cn_Vocabulary.cn_related],
                     vocabData[cn_Vocabulary.cn_hskLevel]
-                ))
+                )
+                )
             }
         }
 
