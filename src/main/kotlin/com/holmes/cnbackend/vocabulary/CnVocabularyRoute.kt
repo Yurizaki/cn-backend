@@ -6,6 +6,14 @@ import io.ktor.routing.*
 
 fun Route.getVocabulary(routeName: String) {
     get(routeName) {
-        call.respond(mapOf("data" to CnVocabularyController().getAllVocabulary()))
+
+        if (call.request.queryParameters.isEmpty()) {
+            call.respond(mapOf("data" to CnVocabController().selectAllVocab()))
+        }
+        else if (call.request.queryParameters.contains("lesson")) {
+            val lesson = call.request.queryParameters["lesson"]
+
+            call.respond(mapOf("data" to CnVocabController().selectAllOfLesson(lesson)))
+        }
     }
 }

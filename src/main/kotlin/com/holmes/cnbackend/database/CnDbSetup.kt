@@ -3,12 +3,12 @@ package com.holmes.cnbackend.database
 import com.holmes.cnbackend.characters.CnCharacterController
 import com.holmes.cnbackend.config.*
 import com.holmes.cnbackend.controllers.CnControllerInterface
-import com.holmes.cnbackend.vocabulary.CnVocabularyController
+import com.holmes.cnbackend.vocabulary.CnVocabController
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 
 var tables: List<CnControllerInterface> = mutableListOf(
-    CnVocabularyController(),
+    CnVocabController(),
     CnCharacterController()
 )
 

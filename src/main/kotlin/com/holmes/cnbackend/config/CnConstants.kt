@@ -16,3 +16,5 @@ const val NOIN_OPER = "run"
 
 const val ROUTE_VOCAB = "vocab"
 const val ROUTE_CHARS = "chars"
+
+const val DB_VOCAB = "CnVocabT"
