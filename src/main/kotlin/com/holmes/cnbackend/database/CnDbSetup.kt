@@ -7,9 +7,8 @@ import com.holmes.cnbackend.vocabulary.CnVocabController
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 
-var tables: List<CnControllerInterface> = mutableListOf(
-    CnVocabController(),
-    CnCharacterController()
+var tables: Map<String, CnControllerInterface> = mutableMapOf(
+    DB_VOCAB to CnVocabController()
 )
 
 fun dbSetup() {
@@ -20,7 +19,6 @@ fun dbSetup() {
     val pass = System.getenv(PASS_PROP)
     val oper = System.getenv(OPER_PROP)
 
-    println(oper)
     if(host != null && user != null && pass != null && oper != null) {
         db = Database.connect("jdbc:$host$PARAMS_PROP", DRIVER_PROP, user, pass)
 
@@ -28,20 +26,33 @@ fun dbSetup() {
         when (oper.lowercase()) {
             PROD_OPER -> {
                 tables.forEach {
-                    it.destroyTable()
-                    it.createTable()
-                    it.executeAllInserts()
+                    println("Executing [$PROD_OPER] operation for table [${it.key}].")
+                    it.value.destroyTable()
+                    it.value.createTable()
+                    it.value.executeAllInserts()
+                    println("Operation [$PROD_OPER] for table [${it.key}] complete.")
+                }
+            }
+            UPDT_OPER -> {
+                tables.forEach {
+                    println("Executing [$PROD_OPER] operation for table [${it.key}].")
+                    it.value.executeNewInserts()
+                    println("Operation [$PROD_OPER] for table [${it.key}] complete.")
                 }
             }
             TERM_OPER -> {
                 tables.forEach {
-                    it.destroyTable()
+                    println("Executing [$PROD_OPER] operation for table [${it.key}].")
+                    it.value.destroyTable()
+                    println("Operation [$PROD_OPER] for table [${it.key}] complete.")
                 }
             }
             NOIN_OPER -> {}
             else -> {
                 tables.forEach {
-                    it.destroyTable()
+                    println("Executing [$PROD_OPER] operation for table [${it.key}].")
+                    it.value.destroyTable()
+                    println("Operation [$PROD_OPER] for table [${it.key}] complete.")
                 }
             }
         }

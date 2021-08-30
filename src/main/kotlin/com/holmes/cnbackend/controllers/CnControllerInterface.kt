@@ -4,4 +4,5 @@ interface CnControllerInterface {
     fun destroyTable()
     fun createTable()
     fun executeAllInserts()
+    fun executeNewInserts()
 }

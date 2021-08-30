@@ -13,11 +13,12 @@ class CnVocabularyParser: CnCsvParser() {
 
             myVocabData.add(
                 CnVocabData(
-                    hanzi = strSpl[0].trim(),
-                    pinyin = strSpl[1].trim(),
-                    english = strSpl[2].trim(),
-                    lesson = strSpl[6].trim(),
-                    lessonLevel = strSpl[7].trim().toIntOrNull()
+                    id = strSpl[0].trim().toInt(),
+                    hanzi = strSpl[1].trim(),
+                    pinyin = strSpl[2].trim(),
+                    english = strSpl[3].trim(),
+                    lesson = strSpl[7].trim(),
+                    lessonLevel = strSpl[8].trim().toIntOrNull()
                 )
             )
         }

@@ -38,6 +38,10 @@ class CnCharacterController : CnControllerInterface {
         CnCharacterInserts().executeAllCharacterInserts()
     }
 
+    override fun executeNewInserts() {
+
+    }
+
     fun getAllCharacters(): MutableList<cn_Char> {
         val data: MutableList<cn_Char> = mutableListOf()
 

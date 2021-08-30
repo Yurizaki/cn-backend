@@ -13,6 +13,7 @@ const val PARAMS_PROP = "?sslmode=require&reWriteBatchedInserts=true"
 const val PROD_OPER = "prod"
 const val TERM_OPER = "terminate"
 const val NOIN_OPER = "run"
+const val UPDT_OPER = "update"
 
 const val ROUTE_VOCAB = "vocab"
 const val ROUTE_CHARS = "chars"

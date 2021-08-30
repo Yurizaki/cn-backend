@@ -26,6 +26,7 @@ class CnVocabController : CnControllerInterface {
         transaction {
             addLogger(StdOutSqlLogger)
             val allVocabsId = CnVocabObj.batchInsert(vocabData) { vocab ->
+                this[CnVocabObj.id] = vocab.id
                 this[CnVocabObj.hanzi] = vocab.hanzi
                 this[CnVocabObj.pinyin] = vocab.pinyin
                 this[CnVocabObj.english] = vocab.english
@@ -36,6 +37,34 @@ class CnVocabController : CnControllerInterface {
                 this[CnVocabObj.lessonLevel] = vocab.lessonLevel
             }
 
+            println("Inserts inserted: $allVocabsId")
+        }
+    }
+
+    override fun executeNewInserts() {
+        val vocabData = CnVocabularyParser()
+            .parseStrings() as MutableList<CnVocabData>
+        val existingData = selectAllVocab()
+        val newData: MutableList<CnVocabData> = mutableListOf()
+
+        vocabData.forEach { newD ->
+            if(!existingData.contains(newD)) {
+                newData.add(newD)
+            }
+        }
+
+        transaction {
+            addLogger(StdOutSqlLogger)
+            val allVocabsId = CnVocabObj.batchInsert(newData) { vocab ->
+                this[CnVocabObj.hanzi] = vocab.hanzi
+                this[CnVocabObj.pinyin] = vocab.pinyin
+                this[CnVocabObj.english] = vocab.english
+                this[CnVocabObj.tags] = vocab.tags
+                this[CnVocabObj.related] = vocab.related
+                this[CnVocabObj.hskLevel] = vocab.hskLevel
+                this[CnVocabObj.lesson] = vocab.lesson
+                this[CnVocabObj.lessonLevel] = vocab.lessonLevel
+            }
             println("Inserts inserted: $allVocabsId")
         }
     }
@@ -77,6 +106,7 @@ class CnVocabController : CnControllerInterface {
         }
 
         return CnVocabData(
+            res[CnVocabObj.id],
             res[CnVocabObj.hanzi],
             res[CnVocabObj.pinyin],
             res[CnVocabObj.english],
