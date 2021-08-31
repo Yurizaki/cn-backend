@@ -11,7 +11,9 @@ data class CnVocabData(
     val related: String? = null,
     val hskLevel: Int? = null,
     val lesson: String? = null,
-    val lessonLevel: Int? = null
+    val lessonLevel: Int? = null,
+    val _created: String,
+    val _updated: String
 ): CnData, Comparable<CnVocabData> {
 
     override fun compareTo(other: CnVocabData): Int {

@@ -14,5 +14,8 @@ object CnVocabObj : Table(DB_VOCAB) {
     val lesson = varchar("lesson", 10).nullable()
     val lessonLevel = integer("lessonLevel").nullable()
 
+    val _created = varchar("_created", 30)
+    val _updated = varchar("_updated", 30)
+
     override val primaryKey = PrimaryKey(id, name = "CnVocabT_pk")
 }

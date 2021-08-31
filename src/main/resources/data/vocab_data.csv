@@ -1,40 +1,40 @@
-ID,Char    ,Pinyin     ,Meaning                                                 ,Tag              ,Related,HSK Level,Lesson   ,Lesson Number
-1 ,不      ,bù         ,"not, no"                                               ,Adverb           ,       ,         ,         ,
-2 ,也      ,yě         ,"too, also"                                             ,Adverb           ,       ,         ,         ,
-3 ,什么    ,shénme     ,what                                                    ,Question-pronoun ,       ,         ,         ,
-4 ,他      ,tā         ,"he, him"                                               ,Pronoun          ,       ,         ,         ,
-5 ,你      ,nǐ         ,you                                                     ,Pronoun          ,       ,         ,greetings,1
-6 ,叫      ,jiào       ,to be called                                            ,Verb             ,       ,         ,         ,
-7 ,名字    ,míngzi     ,name                                                    ,Noun             ,       ,         ,         ,
-8 ,吗      ,ma         ,(a particle used for question expecting a yes/no answer),Question-particle,       ,         ,         ,
-9 ,呢      ,ne         ,(a modal particle used for elliptical questions)        ,Question-particle,       ,         ,         ,
-10,困      ,kùn        ,sleepy                                                  ,Adjective        ,       ,         ,         ,
-11,在      ,zài        ,"to be (here, there), to be (in, on, at)"               ,Verb             ,       ,         ,         ,
-12,坐      ,zuò        ,to sit                                                  ,Verb             ,       ,         ,         ,
-13,太      ,tài        ,"too, extremely"                                        ,Adverb           ,       ,         ,         ,
-14,她      ,tā         ,"she, her"                                              ,Pronoun          ,       ,         ,         ,
-15,好      ,hǎo        ,"good, well, fine"                                      ,Adjective        ,       ,         ,greetings,1
-16,很      ,hěn        ,very                                                    ,Adverb           ,       ,         ,greetings,1
-17,忙      ,máng       ,busy                                                    ,Adjective        ,       ,         ,         ,
-18,怎么样  ,zěnmeyàng  ,"how (is, are), how about..."                           ,Question-pronoun ,       ,         ,         ,
-19,性      ,xìng       ,one's surname is ... / surname                          ,Noun Verb        ,       ,         ,         ,
-20,我      ,wǒ         ,"i, me"                                                 ,Pronoun          ,       ,         ,         ,
-21,最近    ,zuìjìn     ,"recently, lately"                                      ,Adverb           ,       ,         ,         ,
-22,渴      ,kě         ,thirsty                                                 ,Adjective        ,       ,         ,         ,
-23,累      ,lèi        ,tired                                                   ,Adjective        ,       ,         ,         ,
-24,认识    ,rènshi     ,to know (somebody)                                      ,Verb             ,       ,         ,         ,
-25,请      ,qǐng       ,please                                                  ,Verb             ,       ,         ,         ,
-26,请问    ,qǐngwèn    ,May I ask ... ?                                         ,Verb             ,       ,         ,         ,
-27,谢谢    ,xièxie     ,to thank                                                ,Verb             ,       ,         ,         ,
-28,还行    ,hái xíng   ,not bad                                                 ,Adjective        ,       ,         ,         ,
-29,进      ,jìn        ,to enter                                                ,Verb             ,       ,         ,         ,
-30,问      ,wèn        ,to ask                                                  ,Verb             ,       ,         ,         ,
-31,饿      ,è          ,hungry                                                  ,Adjective        ,       ,         ,         ,
-32,马马虎虎,mǎmǎhūhū   ,"so-so, passable"                                       ,Adjective        ,       ,         ,         ,
-33,高兴    ,gāoxìng    ,"happy, pleased"                                        ,Adjective        ,       ,         ,         ,
-34,快一点  ,kuài yīdiǎn,hurry up                                                ,                 ,       ,         ,telephone,1
-35,慢一点  ,màn yīdiǎn ,slow down                                               ,                 ,       ,         ,telephone,1
-36,明白    ,míngbái    ,to understand                                           ,verb             ,       ,3        ,telephone,1
-37,得      ,de         ,"(particle, linking a verb to something)"               ,particle         ,       ,2        ,telephone,1
-38,快      ,kuài       ,fast-quick                                              ,adjective        ,       ,2        ,telephone,1
-39,慢      ,màn        ,slow                                                    ,adjective        ,       ,2        ,telephone,1
+ID,Char    ,Pinyin     ,Meaning                                                 ,Tag              ,Related,HSK Level,Lesson   ,Lesson Number,Created         ,Updated
+1 ,不      ,bù         ,not- no                                                 ,Adverb           ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+2 ,也      ,yě         ,too- also                                               ,Adverb           ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+3 ,什么    ,shénme     ,what                                                    ,Question-pronoun ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+4 ,他      ,tā         ,he- him                                                 ,Pronoun          ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+5 ,你      ,nǐ         ,you                                                     ,Pronoun          ,       ,         ,greetings,1            ,31/08/2021 23:57,31/08/2021 23:57
+6 ,叫      ,jiào       ,to be called                                            ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+7 ,名字    ,míngzi     ,name                                                    ,Noun             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+8 ,吗      ,ma         ,(a particle used for question expecting a yes/no answer),Question-particle,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+9 ,呢      ,ne         ,(a modal particle used for elliptical questions)        ,Question-particle,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+10,困      ,kùn        ,sleepy                                                  ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+11,在      ,zài        ,to be (here- there)- to be (in- on- at)                 ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+12,坐      ,zuò        ,to sit                                                  ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+13,太      ,tài        ,too- extremely                                          ,Adverb           ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+14,她      ,tā         ,she- her                                                ,Pronoun          ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+15,好      ,hǎo        ,good- well- fine                                        ,Adjective        ,       ,         ,greetings,1            ,31/08/2021 23:57,31/08/2021 23:57
+16,很      ,hěn        ,very                                                    ,Adverb           ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+17,忙      ,máng       ,busy                                                    ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+18,怎么样  ,zěnmeyàng  ,how (is- are)- how about...                             ,Question-pronoun ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+19,性      ,xìng       ,one's surname is ... / surname                          ,Noun Verb        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+20,我      ,wǒ         ,i- me                                                   ,Pronoun          ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+21,最近    ,zuìjìn     ,recently- lately                                        ,Adverb           ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+22,渴      ,kě         ,thirsty                                                 ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+23,累      ,lèi        ,tired                                                   ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+24,认识    ,rènshi     ,to know (somebody)                                      ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+25,请      ,qǐng       ,please                                                  ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+26,请问    ,qǐngwèn    ,May I ask ... ?                                         ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+27,谢谢    ,xièxie     ,to thank                                                ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+28,还行    ,hái xíng   ,not bad                                                 ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+29,进      ,jìn        ,to enter                                                ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+30,问      ,wèn        ,to ask                                                  ,Verb             ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+31,饿      ,è          ,hungry                                                  ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+32,马马虎虎,mǎmǎhūhū   ,so-so- passable                                         ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+33,高兴    ,gāoxìng    ,happy- pleased                                          ,Adjective        ,       ,         ,         ,             ,31/08/2021 23:57,31/08/2021 23:57
+34,快一点  ,kuài yīdiǎn,hurry up                                                ,                 ,       ,         ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57
+35,慢一点  ,màn yīdiǎn ,slow down                                               ,                 ,       ,         ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57
+36,明白    ,míngbái    ,to understand                                           ,verb             ,       ,3        ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57
+37,得      ,de         ,(particle- linking a verb to something)                 ,particle         ,       ,2        ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57
+38,快      ,kuài       ,fast-quick                                              ,adjective        ,       ,2        ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57
+39,慢      ,màn        ,slow                                                    ,adjective        ,       ,2        ,telephone,1            ,31/08/2021 23:57,31/08/2021 23:57

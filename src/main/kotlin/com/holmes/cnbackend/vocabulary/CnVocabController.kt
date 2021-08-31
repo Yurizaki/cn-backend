@@ -3,6 +3,8 @@ package com.holmes.cnbackend.vocabulary
 import com.holmes.cnbackend.controllers.CnControllerInterface
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CnVocabController : CnControllerInterface {
     override fun createTable() {
@@ -35,6 +37,8 @@ class CnVocabController : CnControllerInterface {
                 this[CnVocabObj.hskLevel] = vocab.hskLevel
                 this[CnVocabObj.lesson] = vocab.lesson
                 this[CnVocabObj.lessonLevel] = vocab.lessonLevel
+                this[CnVocabObj._created] = vocab._created
+                this[CnVocabObj._updated] = vocab._updated
             }
 
             println("Inserts inserted: $allVocabsId")
@@ -64,6 +68,8 @@ class CnVocabController : CnControllerInterface {
                 this[CnVocabObj.hskLevel] = vocab.hskLevel
                 this[CnVocabObj.lesson] = vocab.lesson
                 this[CnVocabObj.lessonLevel] = vocab.lessonLevel
+                this[CnVocabObj._created] = vocab._created
+                this[CnVocabObj._created] = vocab._updated
             }
             println("Inserts inserted: $allVocabsId")
         }
@@ -114,7 +120,9 @@ class CnVocabController : CnControllerInterface {
             res[CnVocabObj.related],
             res[CnVocabObj.hskLevel],
             lesson,
-            res[CnVocabObj.lessonLevel]
+            res[CnVocabObj.lessonLevel],
+            res[CnVocabObj._created],
+            res[CnVocabObj._updated]
         )
     }
 }

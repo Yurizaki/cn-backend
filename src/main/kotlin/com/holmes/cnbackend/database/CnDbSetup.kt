@@ -6,6 +6,7 @@ import com.holmes.cnbackend.controllers.CnControllerInterface
 import com.holmes.cnbackend.vocabulary.CnVocabController
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.TransactionManager
+import kotlin.system.exitProcess
 
 var tables: Map<String, CnControllerInterface> = mutableMapOf(
     DB_VOCAB to CnVocabController()
@@ -46,6 +47,8 @@ fun dbSetup() {
                     it.value.destroyTable()
                     println("Operation [$PROD_OPER] for table [${it.key}] complete.")
                 }
+
+                exitProcess(1)
             }
             NOIN_OPER -> {}
             else -> {
